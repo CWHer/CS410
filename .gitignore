@@ -3,7 +3,7 @@
 __pycache__
 assets
 *.zip
-report/report.pdf
+report.pdf
 hw[0-9]*.pdf
 .DS_Store
 
