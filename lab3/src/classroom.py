@@ -23,8 +23,8 @@ class Classroom(CSP):
     def _classroom_conflict(self, var1, val1, var2, val2):
         """ YOUR CODE HERE """
         # NOTE: none of these students are adjacent to his/her friends
-        return (not self._is_adjacent(var1, var2)
-                or not self._is_friend(val1, val2))
+        return (val1 != val2 and (not self._is_adjacent(var1, var2)
+                or not self._is_friend(val1, val2)))
 
     def gen_friends(self):
         res = dict()
@@ -64,8 +64,7 @@ class Classroom(CSP):
                     var, val, var2, assignment[var2])
             return False
 
-        return count(conflict(v) for v in self.neighbors[var]) + \
-            len(assignment.values()) - len(set(assignment.values()))
+        return count(conflict(v) for v in self.neighbors[var])
 
     def result(self, state, action):
         """Perform an action and return the new state."""

@@ -4,13 +4,14 @@
 
 1. Implementation of `_classroom_conflict()`
 
-   2 students are conflict only when they are adjacent and they are friends.
-
-   **Beside**,  a student can not sit at 2 seats. To maintain the generalization of `backtracking()`, I add this check in `nconflicts()`
+   2 students are conflict only when they are adjacent and they are friends. **Beside**,  a student can not sit at 2 seats. 
 
    ```python
-   return count(conflict(v) for v in self.neighbors[var]) + \
-   	len(assignment.values()) - len(set(assignment.values()))
+   def _classroom_conflict(self, var1, val1, var2, val2):
+       """ YOUR CODE HERE """
+       # NOTE: none of these students are adjacent to his/her friends
+       return (val1 != val2 and (not self._is_adjacent(var1, var2)
+                                 or not self._is_friend(val1, val2)))
    ```
 
 2. Implementation of `backtracking()`
