@@ -1,0 +1,1 @@
+python pacman.py -q -n 1000 -p MinimaxAgent -g MinimaxGhost -l testClassic -a depth=4
